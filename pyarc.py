@@ -3,7 +3,7 @@ from tkinter import filedialog
 import os, zipfile, datetime
 
 root = tk.Tk()
-root.title('Pyarc version .1')
+root.title('Pyarc version 0.1')
 root.geometry('300x400')
 exclusion_list = ('desktop.ini', 'Thumbs.db')
 arc_folders = []
@@ -11,10 +11,13 @@ os.chdir(os.path.expanduser('~'))
 
 def get_dir():
     global arc_folders
-    folder_name =  filedialog.askdirectory()
+    folder_name =  filedialog.askdirectory(title = 'Your home folder', initialdir=os.path.expanduser('~'))
     if len(folder_name) > 0:
         arc_folders.append(folder_name)
         btn_archive.config(state=tk.NORMAL)
+        the_hint.pack_forget()
+        new_arc = tk.Label(frame_top, text=folder_name)
+        new_arc.pack(side=tk.TOP, fill=tk.X)
         print('arc_folders is now: ')
         for i in arc_folders:
             print(i)
@@ -38,12 +41,14 @@ def archive_it():
     btn_archive.config(state=tk.DISABLED)
 
 frame_top = tk.Frame(root)
-frame_top.pack(side = tk.TOP)
+frame_top.pack(side = tk.TOP, fill=tk.X)
 frame_bottom = tk.Frame(root)
 frame_bottom.pack(side=tk.BOTTOM, fill = tk.X)
 
-my_heading = tk.Label(frame_top, text="Select folders to archive")
-my_heading.pack()
+the_heading = tk.Label(frame_top, text="Folders to archive:", background="grey63")
+the_hint = tk.Label(frame_top, text="(No folders selected yet)\nClick the 'Select' button below to add folders.")
+the_heading.pack(side=tk.TOP, fill=tk.X)
+the_hint.pack(side=tk.TOP, fill=tk.X)
 
 btn_close   = tk.Button(frame_bottom, text="Close",   width = 10, command=root.destroy)
 btn_select  = tk.Button(frame_bottom, text="Select",  width = 10, command=get_dir)
