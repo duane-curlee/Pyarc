@@ -7,7 +7,7 @@ my_fname = 'pyarc-cli-' + my_now.strftime('%Y-%m-%d-%H-%M-%S') + '.zip'
 something_found = False
 
 if len(sys.argv) < 2:
-    print('Exiting, command-line folders are required. No folders archived, exiting.')
+    print('Exiting, command-line folders are required. No folders archived.')
 else:
     my_zip = zipfile.ZipFile(my_fname, 'w')
 
@@ -18,7 +18,7 @@ else:
                 dirs[:]  = [d for d in dirs  if not d.startswith('.')]
                 files[:] = [f for f in files if not f.startswith('pyarc-cli-')]
                 for name in files:
-                    print(os.path.join(root, name))
+                    print('Archiving: ' + os.path.join(root, name))
                     my_zip.write(os.path.join(root, name), compress_type=zipfile.ZIP_DEFLATED)
         else:
             print('Skipping, folder not found: ' + arg)
