@@ -43,21 +43,33 @@ def clear_all():
         os.remove(settings_file)
 
 def archive_it():
-    global arc_folders
+    global arc_folders, root, btn_close, btn_select, btn_archive, btn_clear
+    root.config(cursor="wait")
+    btn_close.config(state=tk.DISABLED)
+    btn_select.config(state=tk.DISABLED)
+    btn_archive.config(state=tk.DISABLED)
+    btn_clear.config(state=tk.DISABLED)
+    root.update()
     if len(arc_folders) > 0:
         the_now = datetime.datetime.now()
         zip_fname = 'pyarc-' + the_now.strftime('%Y-%m-%d-%H-%M-%S') + '.zip'
         the_zip_file = zipfile.ZipFile(zip_fname, 'w')
         for arg in arc_folders:
-            for root, dirs, files in os.walk(arg):
+            for the_root, dirs, files in os.walk(arg):
                 for name in files:
                     if name not in exclusion_list:
-                        the_zip_file.write(os.path.join(root, name), compress_type=zipfile.ZIP_DEFLATED)
+                        the_zip_file.write(os.path.join(the_root, name), compress_type=zipfile.ZIP_DEFLATED)
         the_zip_file.close()
         popup_showinfo("Archive complete")
+    root.config(cursor="")
+    btn_close.config(state=tk.NORMAL)
+    btn_select.config(state=tk.NORMAL)
+    btn_archive.config(state=tk.NORMAL)
+    btn_clear.config(state=tk.NORMAL)
+    root.update()
 
 root = tk.Tk()
-root.title('Pyarc version 0.3')
+root.title('Pyarc version 0.4')
 root.geometry('400x300')
 root.minsize(400, 300)
 
