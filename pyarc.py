@@ -67,7 +67,7 @@ frame_bottom = tk.Frame(root)
 frame_top.pack(side = tk.TOP, fill=tk.BOTH, expand=True)
 frame_bottom.pack(side=tk.BOTTOM, fill = tk.X)
 
-the_head = tk.Label(frame_top, text="Folders to archive:", background="grey63")
+the_head = tk.Label(frame_top, text="Folders to archive:", background="grey63", fg="white", font=("Helvetica", 10, "bold"))
 the_hint = tk.Label(frame_top, text="(No folders selected yet)\nClick the 'Select' button below to add folders.")
 
 the_head.pack(side=tk.TOP, fill=tk.X)
@@ -75,8 +75,8 @@ the_hint.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
 btn_close   = tk.Button(frame_bottom, text="Close",   width = 10, command=root.destroy)
 btn_select  = tk.Button(frame_bottom, text="Select",  width = 10, command=get_dir)
-btn_archive = tk.Button(frame_bottom, text="Archive", width = 10, command=archive_it)
-btn_clear   = tk.Button(frame_bottom, text="Clear",   width = 10, command=clear_all)
+btn_archive = tk.Button(frame_bottom, text="Archive", width = 10, command=archive_it, state=tk.DISABLED)
+btn_clear   = tk.Button(frame_bottom, text="Clear",   width = 10, command=clear_all, state=tk.DISABLED)
 
 btn_close.pack(side=tk.RIGHT, pady = 10, padx = 10)
 btn_select.pack(side=tk.RIGHT, pady = 10, padx = 10)
@@ -95,6 +95,6 @@ def add_new_arc(the_new_arc):
 if os.path.isfile(settings_file):
     with open(settings_file, 'r') as f:
         for i in f.readlines():
-            add_new_arc(i)
+            add_new_arc(i.strip())
 
 root.mainloop()
