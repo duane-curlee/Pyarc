@@ -24,12 +24,6 @@ def get_dir():
             f.write(folder_name + '\n')
             f.close()
 
-def count_them():
-    the_count = 0
-    for widget in frame_top.winfo_children():
-        the_count += 1
-    return the_count
-
 def clear_all():
     global arc_folders
     arc_folders = []
@@ -43,7 +37,7 @@ def clear_all():
         os.remove(settings_file)
 
 def archive_it():
-    global arc_folders, root, btn_close, btn_select, btn_archive, btn_clear
+    global arc_folders, root, btn_close, btn_select, btn_archive, btn_clear, exclusion_list
     root.config(cursor="wait")
     btn_close.config(state=tk.DISABLED)
     btn_select.config(state=tk.DISABLED)
