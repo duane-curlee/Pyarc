@@ -24,11 +24,11 @@ The date and time stamp will be in this format:
 
 year-month-day-hour-minute-second
 
-sample: backup-2020-05-25-14-07-38.zip
+Sample: backup-2020-05-25-14-07-38.zip
 
 Which is May 25, 2020, at 2:07pm and 38 seconds.
 
 Year is always 4-digit, all others are 2-digits. This way, the zip file will
 show when the archive was created, yet the operating system's date and time
 stamp will change and show when the archive was last modified. Also this
-format allows the backup files to be sorted based on age.
+format allows the backup files to be sorted based on age when listed.
