@@ -1,36 +1,35 @@
-# pyarc
-Python archiver, a Python script to create a backup zip file of your
-selected folders.
+# About pyarc.py
+pyarc.py, Python archiver, a Python/tkinter script to create a zipped
+backup file of your choosen files and/or folders.
 
-A platform-independent GUI-based Python archiver tool that will make
-a backup file (a zip file) in the fashion of cPanel's Backup program.
-It will drop the zip archive in your home folder. It will allow you
-to select your folders starting from your home folder.
+Pyarc is intended to be a platform-independent GUI-based backup
+tool that will make a zip file in the fashion of cPanel's Backup program.
+It allows you to choose your folders, but they must be in your home folder,
+and will save your choices for the next time you run Pyarc into this file:
 
-The file name of the backup file should be in this format:
+~/pyarc-settings.txt
+
+Right now, this utility is still under construction, new updates
+will be posted here.
+
+After you press the 'Archive' button, Pyarc will then make and drop
+a zip archive in your home folder. The filename of the backup
+file will be in this format:
 
 backup-(date-time-stamp).zip
 
-## pyarc-cli
-Python Archiver, command line interface, a Python script to create a backup
-zip file of your folders of choice.
-
-This is a platform-independent Python archiver tool that will make a backup
-file (a zip file) in the fashion of cPanel's Backup program. It will drop
-the zip archive in your current working directory. It will allow you to
-select your folders on the command line and include them into the
-archive, keeping the relative paths within the archive.
-
-The file name of the backup file should be in this format:
-
-pyarc-cli-(date-time-stamp).zip
-
-## date and time stamp
+## About the date and time stamp
 
 The date and time stamp will be in this format:
 
 year-month-day-hour-minute-second
 
-Year is 4-digit, all others are 2-digits. This way, the zip file will
-show when the archive was created, yet the operating system's date and
-time stamp will show when the archive was last modified.
+sample: backup-2020-05-25-14-07-38.zip
+
+Which is May 25, 2020, at 2:07pm, and 38 seconds.
+
+Year is always 4-digit, all others are 2-digits. This way, the zip
+file will show when the archive was created, yet the operating
+system's date and time stamp will change and show when the
+archive was last modified. Also this format allows the backup
+files to be sorted based on age.
