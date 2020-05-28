@@ -1,22 +1,22 @@
 # About pyarc.py
-pyarc.py, Python archiver, a Python/tkinter script to create a zipped
-backup file of your choosen files and/or folders.
+This Python script, pyarc.py, or Python Archiver, is a tkinter-based GUI
+program for creating zipped backup files of your choosen files and/or folders.
 
-Pyarc is intended to be a platform-independent GUI-based backup
-tool that will make a zip file in the fashion of cPanel's Backup program.
-It allows you to choose your folders, but they must be in your home folder,
-and will save your choices for the next time you run Pyarc into this file:
+This script is intended to be a platform-independent GUI-based backup tool
+that will make a zip file in the fashion of cPanel's Backup program. It
+allows you to choose your folders, but they must be in your home folder, and
+will save your choices for the next time you run Pyarc into this file:
 
-~/pyarc-settings.txt
+```~/pyarc-settings.txt```
 
-Right now, this utility is still under construction, new updates
-will be posted here.
+Right now, this utility is still under construction, new updates will be
+posted here.
 
-After you press the 'Archive' button, Pyarc will then make and drop
-a zip archive in your home folder. The filename of the backup
-file will be in this format:
+After you press the 'Archive' button, Pyarc will then make and drop a zip
+archive in your home folder. The filename of the backup file will be in this
+format:
 
-backup-(date-time-stamp).zip
+```backup-(date-time-stamp).zip```
 
 ## About the date and time stamp
 
@@ -28,8 +28,7 @@ sample: backup-2020-05-25-14-07-38.zip
 
 Which is May 25, 2020, at 2:07pm, and 38 seconds.
 
-Year is always 4-digit, all others are 2-digits. This way, the zip
-file will show when the archive was created, yet the operating
-system's date and time stamp will change and show when the
-archive was last modified. Also this format allows the backup
-files to be sorted based on age.
+Year is always 4-digit, all others are 2-digits. This way, the zip file will
+show when the archive was created, yet the operating system's date and time
+stamp will change and show when the archive was last modified. Also this
+format allows the backup files to be sorted based on age.
