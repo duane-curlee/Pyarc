@@ -98,7 +98,7 @@ class Root(tk.Tk):
 
         os.chdir(self.home_folder)
         the_now = datetime.now()
-        the_fname = 'pyarc-' + the_now.strftime('%Y-%m-%d-%H-%M-%S') + '.zip'
+        the_fname = 'backup-' + the_now.strftime('%Y-%m-%d-%H-%M-%S') + '.zip'
         zip_fname = os.path.join(self.home_folder, the_fname)
         the_zip_file = zipfile.ZipFile(zip_fname, 'w')
 
