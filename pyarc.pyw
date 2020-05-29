@@ -96,6 +96,7 @@ class Root(tk.Tk):
         self.btn_clear.config(state=tk.DISABLED)
         self.update()
 
+        os.chdir(self.home_folder)
         the_now = datetime.now()
         the_fname = 'pyarc-' + the_now.strftime('%Y-%m-%d-%H-%M-%S') + '.zip'
         zip_fname = os.path.join(self.home_folder, the_fname)
@@ -108,16 +109,16 @@ class Root(tk.Tk):
                         the_zip_file.write(os.path.join(the_root, name),
                             compress_type = zipfile.ZIP_DEFLATED)
 
-        the_zip_file.close()
-        the_end = datetime.now()
-        self.popup_showinfo("Archive complete")
-
         self.config(cursor="")
         self.btn_close.config(state=tk.NORMAL)
         self.btn_add.config(state=tk.NORMAL)
         self.btn_archive.config(state=tk.NORMAL)
         self.btn_clear.config(state=tk.NORMAL)
         self.update()
+
+        the_zip_file.close()
+        the_end = datetime.now()
+        self.popup_showinfo("Archive complete")
 
 
 if __name__ == '__main__':
